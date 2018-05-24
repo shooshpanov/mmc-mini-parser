@@ -36,18 +36,37 @@ $parser = new parser();
 
 <head>
   <title> small parser </title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-    crossorigin="anonymous">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		.header-text {
+		 margin-top: 20px;
+		}
+		.column-cust {
+		margin-bottom: .25rem!important;
+	        margin-top: .25rem!important;
+		}
+		.select-cust {
+		margin-right: .5rem!important;
+		}
+		.row-cust {
+		margin-top: 6rem!important;
+		}
+		.input-cust {
+		margin-right: .5rem!important;
+		}
+
+	</style>
 </head>
 
 <body>
   <div class="container">
     <!-- <center> -->
-    <h4 class="text-center mt-3"> Micro parser </h4>
+    <h4 class="text-center header-text"> Micro parser </h4>
     <form method="post" name="parser" action="?" accept-charset="ISO-8859-1">
     <div class="form-row">
-          <div class="col-auto my-1">
-            <select class="custom-select mr-sm-2" name="site">
+          <div class="col-md-2 column-cust">
+            <select class="form-control select-cust" name="site">
               <option selected>Choose...</option>
               <option value="cdw.com">cdw.com</option>
               <option value="newegg.com">newegg.com</option>
@@ -56,16 +75,16 @@ $parser = new parser();
               <option value="biz.tigerdirect.com">biz.tigerdirect.com</option>
             </select>
           </div>
-          <div class="col my-1">
-            <input class="form-control mr-sm-2" type="text" name="url" required="required" placeholder="Input product url" value="<?=isset($_POST['url'])?$_POST['url']:''?>"
+          <div class="col-md-9 column-cust">
+            <input class="form-control input-cust" type="text" name="url" required="required" placeholder="Input product url" value="<?=isset($_POST['url'])?$_POST['url']:''?>"
             />
           </div>
-          <div class="col-auto my-1">
+          <div class="col-md-1 column-cust">
             <button class="btn btn-primary" type="submit"> Go </button>
           </div>
     </div>
     </form>
-    <div class="row mt-5">
+    <div class="row row-cust">
       <h5 class="font-italic">Result: <?=isset($_POST['site'])?$_POST['site']:''?></h5>
     </div>
     <div class="row">
@@ -76,7 +95,7 @@ $parser = new parser();
     <div class="row">
       <h5 class="font-italic">Time: <?=number_format((microtime(true) - $tcounter),4, '.', '')?> sec</h5>
     </div>
-    <div class="row mt-5">
+    <div class="row row-cust">
       <?=$parser->get_result()?>
     </div>
 
