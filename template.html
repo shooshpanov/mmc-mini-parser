@@ -3,7 +3,7 @@
 	<!-- <?php foreach($data as $row): list($option,$value) = each($row) ?> -->
 	<?php foreach($data as $row): list($option,$value) = [key($row), current($row)] ?>
 	<tr>
-	<td class="text-left w-25" bgcolor="#f5f5f5">
+	<td class="text-left col-md-4" bgcolor="#f5f5f5">
 		<?=$option?>
 	</td>
 	<td class="text-left">
